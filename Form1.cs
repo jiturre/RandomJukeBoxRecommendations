@@ -15,12 +15,14 @@ namespace Proyecto1
     {
 
         string[,] genxAlb = {{"Pop","Electronica", "Rock", "Latino"},
-                            {"Future Nostalgia Moonlight Edition ( Dua Lipa )", "Don't Get To Close ( Skrillex )", "Aftermath ( The Rolling Stones )", "Un Verano Sin ti ( Bad Bunny )"},
-                            {"Bad ( Michael Jackson)", "True ( Avicci )", "Highway To Hell ( AC/DC )", "Canción Animal ( Soda Stereo )"},
-                            {"Finally Enough Love: 50 number Ones ( Madonna)", "Nothing But The Beat Ultimate Edition ( David Guetta )", "Appetite For Destruction ( Guns N' Roses )", "Barrio Fino Bonus Track Version ( Daddy Yankee)"}};
+                            {"Future Nostalgia Moonlight Edition ( Dua Lipa )","Aftermath ( The Rolling Stones )", "Un Verano Sin ti ( Bad Bunny )", "Don't Get To Close ( Skrillex )"},
+                            {"Bad ( Michael Jackson )", "Highway To Hell ( AC/DC )", "Me verás volver ( Soda Stereo )",  "True ( Avicci )"},
+                            {"Finally Enough Love: 50 number Ones ( Madonna )","Appetite For Destruction ( Guns N' Roses )","Barrio Fino Bonus Track Version ( Daddy Yankee)","Nothing But The Beat Ultimate Edition ( David Guetta )"},
+                            {"Fine Line ( Harry Styles )", "Bule Hawaii ( Elvis Presley )", "LALI ( Lali )", "Feel Again ( Armin Van Buuren )" } };
         int indexGenero;
         int indexAlbum;
         string albumSeleccionado;
+        string generoSeleccionado;
         bool encendido = false;
         public Form1()
         {
@@ -50,7 +52,7 @@ namespace Proyecto1
 
         private void cmbGenero_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string generoSeleccionado = cmbGenero.SelectedItem.ToString();
+            generoSeleccionado = cmbGenero.SelectedItem.ToString();
             btnAlbum.Enabled = true;
             if (generoSeleccionado == "Pop")
             {
@@ -83,10 +85,15 @@ namespace Proyecto1
         private void btnAlbum_Click(object sender, EventArgs e)
         {
             Random aleatorio = new Random();
-            indexAlbum = aleatorio.Next(1, 4);
+            indexAlbum = aleatorio.Next(1, 5);
             lblAlbum.Visible = true;
+
             albumSeleccionado = genxAlb[indexAlbum, indexGenero];
             lblAlbum.Text = albumSeleccionado;
+
+            Form2 form2 = new Form2(albumSeleccionado, generoSeleccionado, this);
+            form2.Show();
+            this.Hide();
         }
 
     }
