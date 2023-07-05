@@ -63,9 +63,9 @@ namespace Proyecto1
                     img3 = aleatorio.Next(1, 5);
                 } while (img1 == img2 || img1 == img3 || img2 == img3);
 
-                pbIzquierda.Image = Image.FromFile("C:\\Users\\54381\\OneDrive\\Desktop\\Facultad\\Laboratorio\\ProyectoLaboratorio\\RandomJukeBoxRecommendations\\Resources\\" + genero + "\\" + img1 + ".jpg");
-                pbMedio.Image = Image.FromFile("C:\\Users\\54381\\OneDrive\\Desktop\\Facultad\\Laboratorio\\ProyectoLaboratorio\\RandomJukeBoxRecommendations\\Resources\\" + genero + "\\" + img2 + ".jpg");
-                pbDerecha.Image = Image.FromFile("C:\\Users\\54381\\OneDrive\\Desktop\\Facultad\\Laboratorio\\ProyectoLaboratorio\\RandomJukeBoxRecommendations\\Resources\\" + genero + "\\" + img3 + ".jpg");
+                pbIzquierda.Image = Image.FromFile("C:\\Users\\54381\\OneDrive\\Desktop\\Facultad\\Laboratorio\\ProyectoLaboratorio\\RandomJukeBoxRecommendations\\Resources\\" + genero + "\\" + img1 + ".jpeg");
+                pbMedio.Image = Image.FromFile("C:\\Users\\54381\\OneDrive\\Desktop\\Facultad\\Laboratorio\\ProyectoLaboratorio\\RandomJukeBoxRecommendations\\Resources\\" + genero + "\\" + img2 + ".jpeg");
+                pbDerecha.Image = Image.FromFile("C:\\Users\\54381\\OneDrive\\Desktop\\Facultad\\Laboratorio\\ProyectoLaboratorio\\RandomJukeBoxRecommendations\\Resources\\" + genero + "\\" + img3 + ".jpeg");
 
                 Refresh();
                 Thread.Sleep(100); // Agregar un breve retraso entre cambios de imagen
@@ -77,10 +77,10 @@ namespace Proyecto1
                 // Mostrar solo el PictureBox del medio y ocultar los demás
                 pbIzquierda.Visible = false;
                 pbDerecha.Visible = false;
-                pbMedio.Size = new Size(350, 300);
                 btnVolver.Visible = true;
                 vueltasImagenes();
                 label1.Text = album;
+                pbMedio.Size = new Size(250, 450);
             }
         }
 
@@ -88,7 +88,7 @@ namespace Proyecto1
         {
             numAlbum = imagenAlbumSeleccionado(genero);
 
-            pbMedio.Image = Image.FromFile("C:\\Users\\54381\\OneDrive\\Desktop\\Facultad\\Laboratorio\\ProyectoLaboratorio\\RandomJukeBoxRecommendations\\Resources\\" + genero + "\\" + numAlbum + ".jpg");
+            pbMedio.Image = Image.FromFile("C:\\Users\\54381\\OneDrive\\Desktop\\Facultad\\Laboratorio\\ProyectoLaboratorio\\RandomJukeBoxRecommendations\\Resources\\" + genero + "\\" + numAlbum + ".jpeg");
         }
 
         private int imagenAlbumSeleccionado(string generoAlbum)

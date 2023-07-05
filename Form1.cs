@@ -24,17 +24,16 @@ namespace Proyecto1
         string albumSeleccionado;
         string generoSeleccionado;
         bool encendido = false;
-        bool moviendoMoneda = false;
-        int offsetX;
-        int offsetY;
+ 
         public Form1()
         {
             InitializeComponent();
+            cmbGenero.SelectionChangeCommitted += cmbGenero_SelectionChangeCommitted;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            btnEncendido.Enabled = false;
+            btnEncendido.Text = "ON";
             btnGeneros.Enabled = encendido;
             btnAlbum.Enabled = encendido;
             for (int i = 0; i < genxAlb.GetLength(1); i++)
@@ -43,13 +42,9 @@ namespace Proyecto1
             }
 
 
-            // Asignar los manejadores de eventos necesarios
-            pbMoneda.MouseDown += pbMoneda_MouseDown;
-            pbMoneda.MouseMove += pbMoneda_MouseMove;
-            pbMoneda.MouseUp += pbMoneda_MouseUp;
+            this.BackgroundImage = Image.FromFile("C:\\Users\\54381\\OneDrive\\Desktop\\Facultad\\Laboratorio\\ProyectoLaboratorio\\RandomJukeBoxRecommendations\\Resources\\assets\\Jukebox.jpeg");
 
-            // Cargar la imagen en el PictureBox
-            pbMoneda.Image = Image.FromFile("C:\\Users\\54381\\OneDrive\\Desktop\\Facultad\\Laboratorio\\ProyectoLaboratorio\\RandomJukeBoxRecommendations\\Resources\\assets\\coin.png");
+            
         }
 
         private void btnEncendido_Click(object sender, EventArgs e)
@@ -58,6 +53,13 @@ namespace Proyecto1
             btnAlbum.Enabled = false;
             encendido = !encendido;
             cmbGenero.Visible = false;
+            if (encendido)
+            {
+                btnEncendido.Text = "OFF";
+            } else
+            {
+                btnEncendido.Text = "ON";
+            }
 
         }
 
@@ -94,7 +96,7 @@ namespace Proyecto1
 
         }
 
-        private void btnAlbum_Click(object sender, EventArgs e)
+         private void btnAlbum_Click(object sender, EventArgs e)
         {
             Random aleatorio = new Random();
             indexAlbum = aleatorio.Next(1, 5);
@@ -108,35 +110,9 @@ namespace Proyecto1
             this.Hide();
         }
 
-        private void pbMoneda_MouseDown(object sender, MouseEventArgs e)
+        private void cmbGenero_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            moviendoMoneda = true;
-            offsetX = e.X;
-            offsetY = e.Y;
+            cmbGenero.BackColor = Color.Violet;
         }
-
-        private void pbMoneda_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (moviendoMoneda)
-            {
-                pbMoneda.Left = e.X + pbMoneda.Left - offsetX;
-                pbMoneda.Top = e.Y + pbMoneda.Top - offsetY;
-            }
-        }
-
-        private void pbMoneda_MouseUp(object sender, MouseEventArgs e)
-        {
-            moviendoMoneda = false;
-            int rangoX = 10;
-            int rangoY = 10;
-
-            // Verificar si la posición de la moneda está dentro del rango aceptable
-            if (Math.Abs(pbMoneda.Left - 264) <= rangoX && Math.Abs(pbMoneda.Top - 116) <= rangoY)
-            {
-                btnEncendido.Enabled = true;
-            }
-           
-        }
-
     }
 }

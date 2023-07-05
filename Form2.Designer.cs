@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.btnVolver = new System.Windows.Forms.Button();
             this.pbMedio = new System.Windows.Forms.PictureBox();
             this.pbDerecha = new System.Windows.Forms.PictureBox();
-            this.pbIzquierda = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.pbIzquierda = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbMedio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbDerecha)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbIzquierda)).BeginInit();
@@ -56,54 +57,57 @@
             // 
             // pbMedio
             // 
-            this.pbMedio.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pbMedio.Location = new System.Drawing.Point(427, 75);
+            this.pbMedio.Location = new System.Drawing.Point(345, 113);
             this.pbMedio.Name = "pbMedio";
-            this.pbMedio.Size = new System.Drawing.Size(300, 485);
+            this.pbMedio.Size = new System.Drawing.Size(226, 404);
             this.pbMedio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbMedio.TabIndex = 2;
             this.pbMedio.TabStop = false;
             // 
             // pbDerecha
             // 
-            this.pbDerecha.Location = new System.Drawing.Point(790, 75);
+            this.pbDerecha.Location = new System.Drawing.Point(651, 113);
             this.pbDerecha.Name = "pbDerecha";
-            this.pbDerecha.Size = new System.Drawing.Size(300, 485);
+            this.pbDerecha.Size = new System.Drawing.Size(228, 404);
             this.pbDerecha.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbDerecha.TabIndex = 3;
             this.pbDerecha.TabStop = false;
-            // 
-            // pbIzquierda
-            // 
-            this.pbIzquierda.Location = new System.Drawing.Point(59, 75);
-            this.pbIzquierda.Name = "pbIzquierda";
-            this.pbIzquierda.Size = new System.Drawing.Size(300, 485);
-            this.pbIzquierda.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbIzquierda.TabIndex = 4;
-            this.pbIzquierda.TabStop = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(499, 34);
+            this.label1.Location = new System.Drawing.Point(389, 57);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(132, 16);
             this.label1.TabIndex = 5;
             this.label1.Text = "Album Seleccionado";
+            // 
+            // pbIzquierda
+            // 
+            this.pbIzquierda.Location = new System.Drawing.Point(66, 113);
+            this.pbIzquierda.Name = "pbIzquierda";
+            this.pbIzquierda.Size = new System.Drawing.Size(220, 410);
+            this.pbIzquierda.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbIzquierda.TabIndex = 4;
+            this.pbIzquierda.TabStop = false;
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1130, 751);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(938, 744);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pbIzquierda);
             this.Controls.Add(this.pbDerecha);
             this.Controls.Add(this.pbMedio);
             this.Controls.Add(this.btnVolver);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(956, 791);
+            this.MinimumSize = new System.Drawing.Size(956, 791);
             this.Name = "Form2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";
@@ -120,7 +124,7 @@
         private System.Windows.Forms.Button btnVolver;
         private System.Windows.Forms.PictureBox pbMedio;
         private System.Windows.Forms.PictureBox pbDerecha;
-        private System.Windows.Forms.PictureBox pbIzquierda;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pbIzquierda;
     }
 }
