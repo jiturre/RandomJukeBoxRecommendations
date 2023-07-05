@@ -15,7 +15,7 @@ namespace Proyecto1
 {
     public partial class Form2 : Form
     {
-        //Declaración variables globales 
+        // Declaración variables globales
         private int numAlbum;
         private int cambios;
         private Timer timer;
@@ -23,6 +23,7 @@ namespace Proyecto1
         private Form formAnterior;
         private string album;
         private string genero;
+
         public Form2(string albumSeleccionado, string nombreGenero, Form form1)
         {
             InitializeComponent();
@@ -35,25 +36,33 @@ namespace Proyecto1
 
             btnVolver.Visible = false;
 
-
             timer = new Timer();
             // Intervalo de tiempo para cambiar las imágenes (en milisegundos)
-            timer.Interval = 1000; 
-            timer.Tick += Timer_Tick;
+            timer.Interval = 1000;
+            // Cada vez que ocurra el evento Tick, se llamará al método CambiarImagenesGradualmente
+            timer.Tick += CambiarImagenesGradualmente;
             timer.Start();
 
             aleatorio = new Random();
         }
-        private void Timer_Tick(object sender, EventArgs e)
+
+        private void CambiarImagenesGradualmente(object sender, EventArgs e)
         {
             cambios++;
 
             // Cambiar las imágenes gradualmente
             if (cambios <= 10)
             {
-                int img1 = aleatorio.Next(1, 5);
-                int img2 = aleatorio.Next(1, 5);
-                int img3 = aleatorio.Next(1, 5);
+                int img1;
+                int img2;
+                int img3;
+                do
+                {
+                    img1 = aleatorio.Next(1, 5);
+                    img2 = aleatorio.Next(1, 5);
+                    img3 = aleatorio.Next(1, 5);
+                } while (img1 == img2 || img1 == img3 || img2 == img3);
+
                 pbIzquierda.Image = Image.FromFile("C:\\Users\\54381\\OneDrive\\Desktop\\Facultad\\Laboratorio\\ProyectoLaboratorio\\RandomJukeBoxRecommendations\\Resources\\" + genero + "\\" + img1 + ".jpg");
                 pbMedio.Image = Image.FromFile("C:\\Users\\54381\\OneDrive\\Desktop\\Facultad\\Laboratorio\\ProyectoLaboratorio\\RandomJukeBoxRecommendations\\Resources\\" + genero + "\\" + img2 + ".jpg");
                 pbDerecha.Image = Image.FromFile("C:\\Users\\54381\\OneDrive\\Desktop\\Facultad\\Laboratorio\\ProyectoLaboratorio\\RandomJukeBoxRecommendations\\Resources\\" + genero + "\\" + img3 + ".jpg");
@@ -74,12 +83,14 @@ namespace Proyecto1
                 label1.Text = album;
             }
         }
+
         private void vueltasImagenes()
         {
             numAlbum = imagenAlbumSeleccionado(genero);
 
             pbMedio.Image = Image.FromFile("C:\\Users\\54381\\OneDrive\\Desktop\\Facultad\\Laboratorio\\ProyectoLaboratorio\\RandomJukeBoxRecommendations\\Resources\\" + genero + "\\" + numAlbum + ".jpg");
         }
+
         private int imagenAlbumSeleccionado(string generoAlbum)
         {
             // Asignar un número a cada álbum
@@ -158,8 +169,6 @@ namespace Proyecto1
 
             return numAlbum;
         }
-
-
 
         private void btnVolver_Click(object sender, EventArgs e)
         {

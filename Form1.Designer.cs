@@ -28,12 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.btnAlbum = new System.Windows.Forms.Button();
             this.btnEncendido = new System.Windows.Forms.Button();
             this.btnGeneros = new System.Windows.Forms.Button();
             this.cmbGenero = new System.Windows.Forms.ComboBox();
             this.lblAlbum = new System.Windows.Forms.Label();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.pbMoneda = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMoneda)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAlbum
@@ -41,10 +45,10 @@
             this.btnAlbum.BackColor = System.Drawing.Color.IndianRed;
             this.btnAlbum.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAlbum.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAlbum.Location = new System.Drawing.Point(373, 303);
-            this.btnAlbum.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAlbum.Location = new System.Drawing.Point(497, 373);
+            this.btnAlbum.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAlbum.Name = "btnAlbum";
-            this.btnAlbum.Size = new System.Drawing.Size(71, 25);
+            this.btnAlbum.Size = new System.Drawing.Size(95, 31);
             this.btnAlbum.TabIndex = 0;
             this.btnAlbum.Text = "Albumes";
             this.btnAlbum.UseVisualStyleBackColor = false;
@@ -57,10 +61,10 @@
             this.btnEncendido.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEncendido.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEncendido.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnEncendido.Location = new System.Drawing.Point(290, 229);
-            this.btnEncendido.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEncendido.Location = new System.Drawing.Point(387, 282);
+            this.btnEncendido.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEncendido.Name = "btnEncendido";
-            this.btnEncendido.Size = new System.Drawing.Size(62, 22);
+            this.btnEncendido.Size = new System.Drawing.Size(83, 27);
             this.btnEncendido.TabIndex = 2;
             this.btnEncendido.Text = "ON/OFF";
             this.btnEncendido.UseVisualStyleBackColor = false;
@@ -71,10 +75,10 @@
             this.btnGeneros.BackColor = System.Drawing.Color.IndianRed;
             this.btnGeneros.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnGeneros.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGeneros.Location = new System.Drawing.Point(198, 303);
-            this.btnGeneros.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnGeneros.Location = new System.Drawing.Point(264, 373);
+            this.btnGeneros.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGeneros.Name = "btnGeneros";
-            this.btnGeneros.Size = new System.Drawing.Size(70, 25);
+            this.btnGeneros.Size = new System.Drawing.Size(93, 31);
             this.btnGeneros.TabIndex = 3;
             this.btnGeneros.Text = "Generos";
             this.btnGeneros.UseVisualStyleBackColor = false;
@@ -88,10 +92,10 @@
             this.cmbGenero.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cmbGenero.ForeColor = System.Drawing.SystemColors.InfoText;
             this.cmbGenero.FormattingEnabled = true;
-            this.cmbGenero.Location = new System.Drawing.Point(290, 323);
-            this.cmbGenero.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbGenero.Location = new System.Drawing.Point(387, 398);
+            this.cmbGenero.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbGenero.Name = "cmbGenero";
-            this.cmbGenero.Size = new System.Drawing.Size(62, 21);
+            this.cmbGenero.Size = new System.Drawing.Size(81, 24);
             this.cmbGenero.TabIndex = 4;
             this.cmbGenero.Visible = false;
             this.cmbGenero.SelectedIndexChanged += new System.EventHandler(this.cmbGenero_SelectedIndexChanged);
@@ -100,34 +104,56 @@
             // 
             this.lblAlbum.AutoSize = true;
             this.lblAlbum.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAlbum.Location = new System.Drawing.Point(221, 143);
-            this.lblAlbum.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblAlbum.Location = new System.Drawing.Point(295, 176);
             this.lblAlbum.Name = "lblAlbum";
-            this.lblAlbum.Size = new System.Drawing.Size(205, 26);
+            this.lblAlbum.Size = new System.Drawing.Size(246, 31);
             this.lblAlbum.TabIndex = 5;
             this.lblAlbum.Text = "Album seleccionado";
             this.lblAlbum.Visible = false;
             // 
+            // imageList1
+            // 
+            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // pbMoneda
+            // 
+            this.pbMoneda.BackColor = System.Drawing.Color.Transparent;
+            this.pbMoneda.BackgroundImage = global::Proyecto1.Properties.Resources.coin;
+            this.pbMoneda.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbMoneda.Location = new System.Drawing.Point(730, 591);
+            this.pbMoneda.Name = "pbMoneda";
+            this.pbMoneda.Size = new System.Drawing.Size(98, 83);
+            this.pbMoneda.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbMoneda.TabIndex = 6;
+            this.pbMoneda.TabStop = false;
+            this.pbMoneda.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbMoneda_MouseDown);
+            this.pbMoneda.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pbMoneda_MouseMove);
+            this.pbMoneda.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pbMoneda_MouseUp);
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Proyecto1.Properties.Resources.WhatsApp_Image_2023_06_21_at_20_22_37;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(642, 609);
+            this.ClientSize = new System.Drawing.Size(853, 750);
+            this.Controls.Add(this.pbMoneda);
             this.Controls.Add(this.lblAlbum);
             this.Controls.Add(this.cmbGenero);
             this.Controls.Add(this.btnGeneros);
             this.Controls.Add(this.btnEncendido);
             this.Controls.Add(this.btnAlbum);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.MaximumSize = new System.Drawing.Size(658, 657);
-            this.MinimumSize = new System.Drawing.Size(658, 591);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximumSize = new System.Drawing.Size(871, 798);
+            this.MinimumSize = new System.Drawing.Size(871, 717);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Random Juke Box Recommendations";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pbMoneda)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -140,6 +166,8 @@
         private System.Windows.Forms.Button btnGeneros;
         private System.Windows.Forms.ComboBox cmbGenero;
         private System.Windows.Forms.Label lblAlbum;
+        private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.PictureBox pbMoneda;
     }
 }
 

@@ -24,6 +24,9 @@ namespace Proyecto1
         string albumSeleccionado;
         string generoSeleccionado;
         bool encendido = false;
+        bool moviendoMoneda = false;
+        int offsetX;
+        int offsetY;
         public Form1()
         {
             InitializeComponent();
@@ -31,6 +34,7 @@ namespace Proyecto1
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            btnEncendido.Enabled = false;
             btnGeneros.Enabled = encendido;
             btnAlbum.Enabled = encendido;
             for (int i = 0; i < genxAlb.GetLength(1); i++)
@@ -38,6 +42,14 @@ namespace Proyecto1
                 cmbGenero.Items.Add(genxAlb[0, i]);
             }
 
+
+            // Asignar los manejadores de eventos necesarios
+            pbMoneda.MouseDown += pbMoneda_MouseDown;
+            pbMoneda.MouseMove += pbMoneda_MouseMove;
+            pbMoneda.MouseUp += pbMoneda_MouseUp;
+
+            // Cargar la imagen en el PictureBox
+            pbMoneda.Image = Image.FromFile("C:\\Users\\54381\\OneDrive\\Desktop\\Facultad\\Laboratorio\\ProyectoLaboratorio\\RandomJukeBoxRecommendations\\Resources\\assets\\coin.png");
         }
 
         private void btnEncendido_Click(object sender, EventArgs e)
@@ -94,6 +106,36 @@ namespace Proyecto1
             Form2 form2 = new Form2(albumSeleccionado, generoSeleccionado, this);
             form2.Show();
             this.Hide();
+        }
+
+        private void pbMoneda_MouseDown(object sender, MouseEventArgs e)
+        {
+            moviendoMoneda = true;
+            offsetX = e.X;
+            offsetY = e.Y;
+        }
+
+        private void pbMoneda_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (moviendoMoneda)
+            {
+                pbMoneda.Left = e.X + pbMoneda.Left - offsetX;
+                pbMoneda.Top = e.Y + pbMoneda.Top - offsetY;
+            }
+        }
+
+        private void pbMoneda_MouseUp(object sender, MouseEventArgs e)
+        {
+            moviendoMoneda = false;
+            int rangoX = 10;
+            int rangoY = 10;
+
+            // Verificar si la posición de la moneda está dentro del rango aceptable
+            if (Math.Abs(pbMoneda.Left - 264) <= rangoX && Math.Abs(pbMoneda.Top - 116) <= rangoY)
+            {
+                btnEncendido.Enabled = true;
+            }
+           
         }
 
     }
