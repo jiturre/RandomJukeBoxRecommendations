@@ -13,34 +13,34 @@ using Timer = System.Windows.Forms.Timer;
 
 namespace Proyecto1
 {
-    public partial class Form2 : Form
+    public partial class Seleccion : Form
     {
-        // Declaración variables globales
-        private int numAlbum;
-        private int cambios;
-        private Timer timer;
-        private Random aleatorio;
-        private Form formAnterior;
-        private string album;
-        private string genero;
+        // Declaración de variables globales
+        private int numAlbum; // Número del álbum seleccionado
+        private int cambios; // Contador de cambios de imagen
+        private Timer timer; // Temporizador para cambiar las imágenes gradualmente
+        private Random aleatorio; // Generador de números aleatorios
+        private Form formAnterior; // Formulario anterior (JukeBox)
+        private string album; // Nombre del álbum seleccionado
+        private string genero; // Género del álbum seleccionado
+        private int tiradasRestantes; // Número de tiradas restantes
 
-        public Form2(string albumSeleccionado, string nombreGenero, Form form1)
+        public Seleccion(string albumSeleccionado, string nombreGenero, Form form1, int tiradas)
         {
             InitializeComponent();
 
             formAnterior = form1;
             album = albumSeleccionado;
             cambios = 0;
+            tiradasRestantes = tiradas;
 
             genero = nombreGenero;
 
             btnVolver.Visible = false;
 
             timer = new Timer();
-            // Intervalo de tiempo para cambiar las imágenes (en milisegundos)
-            timer.Interval = 1000;
-            // Cada vez que ocurra el evento Tick, se llamará al método CambiarImagenesGradualmente
-            timer.Tick += CambiarImagenesGradualmente;
+            timer.Interval = 1000; // Intervalo de tiempo para cambiar las imágenes (en milisegundos)
+            timer.Tick += CambiarImagenesGradualmente; // Evento Tick para cambiar las imágenes gradualmente
             timer.Start();
 
             aleatorio = new Random();
@@ -53,6 +53,7 @@ namespace Proyecto1
             // Cambiar las imágenes gradualmente
             if (cambios <= 10)
             {
+                // Generar índices aleatorios para las imágenes
                 int img1;
                 int img2;
                 int img3;
@@ -63,6 +64,7 @@ namespace Proyecto1
                     img3 = aleatorio.Next(1, 5);
                 } while (img1 == img2 || img1 == img3 || img2 == img3);
 
+                // Cargar las imágenes correspondientes en los PictureBox
                 pbIzquierda.Image = Image.FromFile("C:\\Users\\54381\\OneDrive\\Desktop\\Facultad\\Laboratorio\\ProyectoLaboratorio\\RandomJukeBoxRecommendations\\Resources\\" + genero + "\\" + img1 + ".jpeg");
                 pbMedio.Image = Image.FromFile("C:\\Users\\54381\\OneDrive\\Desktop\\Facultad\\Laboratorio\\ProyectoLaboratorio\\RandomJukeBoxRecommendations\\Resources\\" + genero + "\\" + img2 + ".jpeg");
                 pbDerecha.Image = Image.FromFile("C:\\Users\\54381\\OneDrive\\Desktop\\Facultad\\Laboratorio\\ProyectoLaboratorio\\RandomJukeBoxRecommendations\\Resources\\" + genero + "\\" + img3 + ".jpeg");
@@ -88,12 +90,13 @@ namespace Proyecto1
         {
             numAlbum = imagenAlbumSeleccionado(genero);
 
+            // Cargar la imagen del álbum seleccionado en el PictureBox del medio
             pbMedio.Image = Image.FromFile("C:\\Users\\54381\\OneDrive\\Desktop\\Facultad\\Laboratorio\\ProyectoLaboratorio\\RandomJukeBoxRecommendations\\Resources\\" + genero + "\\" + numAlbum + ".jpeg");
         }
 
         private int imagenAlbumSeleccionado(string generoAlbum)
         {
-            // Asignar un número a cada álbum
+            // Asignar un número a cada álbum basado en el género y el nombre del álbum
             if (generoAlbum == "Pop")
             {
                 switch (album)
@@ -172,20 +175,26 @@ namespace Proyecto1
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
+            // Mostrar el formulario anterior (JukeBox) y cerrar el formulario actual (Seleccion)
             formAnterior.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void btnVolver_MouseHover(object sender, EventArgs e)
         {
+            // Cambiar los colores de fondo y de texto del botón "Volver" cuando el mouse se coloca sobre él
             btnVolver.BackColor = Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(3)))), ((int)(((byte)(179)))));
             btnVolver.ForeColor = Color.Black;
         }
 
         private void btnVolver_MouseLeave(object sender, EventArgs e)
         {
+            // Restaurar los colores de fondo y de texto del botón "Volver" cuando el mouse sale de él
             btnVolver.BackColor = Color.Black;
             btnVolver.ForeColor = Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(3)))), ((int)(((byte)(179)))));
         }
+
+
     }
+
 }

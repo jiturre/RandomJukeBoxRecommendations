@@ -14,6 +14,7 @@ namespace Proyecto1
     {
         int vuelto = 0;
         int montoIngresado = 0;
+        
         public Inicio()
         {
             InitializeComponent();
@@ -32,9 +33,22 @@ namespace Proyecto1
                 } else
                 {
                     vuelto = montoIngresado - 50;
-                    MessageBox.Show($"Bienvenido! Su vuelto es {vuelto}. Tienes 3 tiradas disponibles");
+                    MessageBox.Show($"Bienvenido! Su vuelto es ${vuelto}. Tienes 3 tiradas disponibles");
                 }
+                JukeBox siguienteform = new JukeBox(this);
+                siguienteform.Show();
+                this.Hide();
+            } else
+            {
+                MessageBox.Show("Ingrese un monto mayor a $50");
             }
         }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+       
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Proyecto1
 {
-    partial class Form2
+    partial class Seleccion
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Seleccion));
             this.btnVolver = new System.Windows.Forms.Button();
             this.pbMedio = new System.Windows.Forms.PictureBox();
             this.pbDerecha = new System.Windows.Forms.PictureBox();
@@ -92,7 +92,7 @@
             this.pbIzquierda.TabIndex = 4;
             this.pbIzquierda.TabStop = false;
             // 
-            // Form2
+            // Seleccion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -108,7 +108,7 @@
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(956, 791);
             this.MinimumSize = new System.Drawing.Size(956, 791);
-            this.Name = "Form2";
+            this.Name = "Seleccion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";
             ((System.ComponentModel.ISupportInitialize)(this.pbMedio)).EndInit();
