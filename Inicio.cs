@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Proyecto1
 {
@@ -14,7 +15,8 @@ namespace Proyecto1
     {
         int vuelto = 0; // Variable para almacenar el vuelto
         int montoIngresado = 0; // Variable para almacenar el monto ingresado
-
+        string datoIngresado = "";
+         
         public Inicio()
         {
             InitializeComponent();
@@ -22,33 +24,47 @@ namespace Proyecto1
 
         private void btnPagar_Click(object sender, EventArgs e)
         {
-            montoIngresado = int.Parse(txtMonto.Text); // Convertir el texto del campo txtMonto a un entero y guardarlo en montoIngresado
+            datoIngresado = txtMonto.Text; // Convertir el texto del campo txtMonto a un entero y guardarlo en montoIngresado
 
-            if (montoIngresado >= 50) // Verificar si el monto ingresado es mayor o igual a 50
-            {
-                if (montoIngresado == 50) // Si el monto ingresado es exactamente 50
+            //Funcion tryParse intenta convertir en int -> devuelve 
+           if (int.TryParse(datoIngresado, out montoIngresado)){
+                if (montoIngresado >= 50) // Verificar si el monto ingresado es mayor o igual a 50
                 {
-                    MessageBox.Show("Bienvenido! Tienes 3 tiradas disponibles"); // Mostrar mensaje de bienvenida con 3 tiradas disponibles
+                    if (montoIngresado == 50) // Si el monto ingresado es exactamente 50
+                    {
+                        MessageBox.Show("Bienvenido! Tienes 3 tiradas disponibles"); // Mostrar mensaje de bienvenida con 3 tiradas disponibles
+                    }
+                    else
+                    {
+                        vuelto = montoIngresado - 50; // Calcular el vuelto restando 50 al monto ingresado
+                        MessageBox.Show($"Bienvenido! Su vuelto es ${vuelto}. Tienes 3 tiradas disponibles"); // Mostrar mensaje de bienvenida con el vuelto y 3 tiradas disponibles
+                    }
+
+                    JukeBox siguienteform = new JukeBox(); // Crear una instancia del formulario JukeBox y pasar una referencia a esta instancia de Inicio
+                    siguienteform.Show(); // Mostrar el formulario JukeBox
+                    this.Hide(); // Ocultar el formulario actual (Inicio)
                 }
                 else
                 {
-                    vuelto = montoIngresado - 50; // Calcular el vuelto restando 50 al monto ingresado
-                    MessageBox.Show($"Bienvenido! Su vuelto es ${vuelto}. Tienes 3 tiradas disponibles"); // Mostrar mensaje de bienvenida con el vuelto y 3 tiradas disponibles
+                    MessageBox.Show("Ingrese un monto mayor a $50"); // Mostrar mensaje de error si el monto ingresado es menor a 50
                 }
 
-                JukeBox siguienteform = new JukeBox(this); // Crear una instancia del formulario JukeBox y pasar una referencia a esta instancia de Inicio
-                siguienteform.Show(); // Mostrar el formulario JukeBox
-                this.Hide(); // Ocultar el formulario actual (Inicio)
-            }
-            else
+            } else
             {
-                MessageBox.Show("Ingrese un monto mayor a $50"); // Mostrar mensaje de error si el monto ingresado es menor a 50
-            }
+                MessageBox.Show("Ingresar un valor numérico");
+            }           
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Application.Exit(); // Cerrar la aplicación
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Nosotros nosotros = new Nosotros();
+            this.Hide();
+            nosotros.Show();
         }
     }
 }

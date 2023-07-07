@@ -20,19 +20,18 @@ namespace Proyecto1
         private int cambios; // Contador de cambios de imagen
         private Timer timer; // Temporizador para cambiar las imágenes gradualmente
         private Random aleatorio; // Generador de números aleatorios
-        private Form formAnterior; // Formulario anterior (JukeBox)
         private string album; // Nombre del álbum seleccionado
         private string genero; // Género del álbum seleccionado
-        private int tiradasRestantes; // Número de tiradas restantes
+        
 
-        public Seleccion(string albumSeleccionado, string nombreGenero, Form form1, int tiradas)
+        public Seleccion(string albumSeleccionado, string nombreGenero)
         {
             InitializeComponent();
 
-            formAnterior = form1;
+            
             album = albumSeleccionado;
             cambios = 0;
-            tiradasRestantes = tiradas;
+            
 
             genero = nombreGenero;
 
@@ -81,7 +80,6 @@ namespace Proyecto1
                 pbDerecha.Visible = false;
                 btnVolver.Visible = true;
                 vueltasImagenes();
-                label1.Text = album;
                 pbMedio.Size = new Size(250, 450);
             }
         }
@@ -176,8 +174,9 @@ namespace Proyecto1
         private void btnVolver_Click(object sender, EventArgs e)
         {
             // Mostrar el formulario anterior (JukeBox) y cerrar el formulario actual (Seleccion)
-            formAnterior.Show();
+            JukeBox formAnterior = new JukeBox();
             this.Close();
+            formAnterior.Show();
         }
 
         private void btnVolver_MouseHover(object sender, EventArgs e)

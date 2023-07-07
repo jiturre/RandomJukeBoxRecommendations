@@ -32,7 +32,6 @@
             this.btnVolver = new System.Windows.Forms.Button();
             this.pbMedio = new System.Windows.Forms.PictureBox();
             this.pbDerecha = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.pbIzquierda = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbMedio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbDerecha)).BeginInit();
@@ -73,16 +72,6 @@
             this.pbDerecha.TabIndex = 3;
             this.pbDerecha.TabStop = false;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(389, 57);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(132, 16);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Album Seleccionado";
-            // 
             // pbIzquierda
             // 
             this.pbIzquierda.Location = new System.Drawing.Point(66, 113);
@@ -100,7 +89,6 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(938, 744);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.pbIzquierda);
             this.Controls.Add(this.pbDerecha);
             this.Controls.Add(this.pbMedio);
@@ -115,7 +103,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbDerecha)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbIzquierda)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -124,7 +111,6 @@
         private System.Windows.Forms.Button btnVolver;
         private System.Windows.Forms.PictureBox pbMedio;
         private System.Windows.Forms.PictureBox pbDerecha;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pbIzquierda;
     }
 }

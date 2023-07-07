@@ -53,6 +53,12 @@
     <Compile Include="JukeBox.Designer.cs">
       <DependentUpon>JukeBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Nosotros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Nosotros.Designer.cs">
+      <DependentUpon>Nosotros.cs</DependentUpon>
+    </Compile>
     <Compile Include="Seleccion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +75,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="JukeBox.resx">
       <DependentUpon>JukeBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nosotros.resx">
+      <DependentUpon>Nosotros.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Seleccion.resx">
       <DependentUpon>Seleccion.cs</DependentUpon>

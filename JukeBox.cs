@@ -32,7 +32,7 @@ namespace Proyecto1
         bool encendido = false; // Estado del JukeBox (encendido o apagado)
         Random aleatorio = new Random(); // Objeto para generar números aleatorios
 
-        public JukeBox(Form formInicio)
+        public JukeBox()
         {
             InitializeComponent();
         }
@@ -126,7 +126,7 @@ namespace Proyecto1
             albumSeleccionado = genxAlb[indexAlbum, indexGenero];
 
             // Crear una nueva instancia del formulario Seleccion y mostrarlo como un diálogo
-            Seleccion form2 = new Seleccion(albumSeleccionado, generoSeleccionado, this, tiradas);
+            Seleccion form2 = new Seleccion(albumSeleccionado, generoSeleccionado);
             form2.ShowDialog();
 
             // Actualizar el estado del JukeBox
